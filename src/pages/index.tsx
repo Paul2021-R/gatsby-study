@@ -1,13 +1,30 @@
 import React, { FunctionComponent } from 'react'
-import Text from 'components/Text'
 import { Link } from 'gatsby'
+import styled from '@emotion/styled'
+import GlobalStyle from 'components/Common/GlobalStyle'
+import Introduction from 'components/Main/Introduction'
+import CategoryList from 'components/Main/CategoryList'
+import Footer from 'components/Common/Footer'
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
+const CATEGORY_LIST = {
+  All: 5,
+  Web: 3,
+  Mobile: 2,
+}
 
 const IndexPage: FunctionComponent = function () {
   return (
-    <div>
-      <Text text="Home" />
-      <Link to="/info/">Info</Link>
-    </div>
+    <Container>
+      <GlobalStyle />
+        <Introduction />
+        <CategoryList selectedCategory="All" categoryList={CATEGORY_LIST} />
+        <Footer />
+    </Container>
     )
 }
 //Link 컴포넌트를 사용하여 해당 컴포넌트 로드시 해당하는 모든 링크를 찾은 후, 각 링크의 페이지를 미리 로드한다. 
