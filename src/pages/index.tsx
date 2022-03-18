@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import GlobalStyle from 'components/Common/GlobalStyle'
 import Introduction from 'components/Main/Introduction'
 import CategoryList from 'components/Main/CategoryList'
+import PostList from 'components/Main/PostList'
 import Footer from 'components/Common/Footer'
 
 const Container = styled.div`
@@ -15,6 +16,8 @@ const CATEGORY_LIST = {
   All: 5,
   Web: 3,
   Mobile: 2,
+  '42seoul': 5,
+  etc: 10,
 }
 
 const IndexPage: FunctionComponent = function () {
@@ -23,6 +26,7 @@ const IndexPage: FunctionComponent = function () {
       <GlobalStyle />
         <Introduction />
         <CategoryList selectedCategory="All" categoryList={CATEGORY_LIST} />
+        <PostList />
         <Footer />
     </Container>
     )
