@@ -2,7 +2,8 @@ module.exports = {
     siteMetadata: {
       title: `Paul's blog study`,
       description: `제대로 달려본다. 끝까지 끝내보자!`,
-      author: `@haryu`,
+      author: `haryu`,
+      siteUrl: 'https://paul2021-r.github.io'
     },
     plugins: [
       {
@@ -73,10 +74,24 @@ module.exports = {
                 rel: 'nofollow',
               },
             },
+            {
+              resolve: 'gatsby-plugin-canonical-urls',
+              options: {
+                siteUrl: 'http://paul2021-r.github.io',
+                stripQueryString: true,
+              },
+            },
+            `gatsby-plugin-sitemap`,
           ],
         },
       },
       `gatsby-plugin-emotion`,
+      {
+        resolve: 'gatsby-plugin-robots-txt',
+        options: {
+          policy: [{ userAgent: '*', allow: '/' }],
+        },
+      },
       // this (optional) plugin enables Progressive Web App + Offline functionality
       // To learn more, visit: <https://gatsby.dev/offline>
       // `gatsby-plugin-offline`,
